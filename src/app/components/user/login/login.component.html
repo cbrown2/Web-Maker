@@ -1,0 +1,22 @@
+<div class="container">
+
+  <h1>Login</h1>
+
+<form (ngSubmit)= "login()" #myForm= "ngForm">
+  <div class="form-group">
+
+      <input class="form-control" required name="username" [(ngModel)] ="username" type="text"
+       placeholder="Usersname">
+    
+
+  </div>
+  <div class= " alert alert-warning"></div> <!--36.06-->
+      <div class= "form-group">
+       <input class="form-control" required name= "password" [(ngModel)]= "password" type="password"
+      placeholder="Password">
+
+  </div>
+
+  <button [disabled]= "myForm.invalid" type="submit" class="btn btn-success btn-block">Login</button>
+  <a routerLink="/register"class="btn btn-warning btn-block">Register</a>
+</form>

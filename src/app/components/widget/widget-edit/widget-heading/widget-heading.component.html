@@ -1,0 +1,50 @@
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-light fixed-top bg-light">
+      <a class="color-black"
+     routerLink="/user/:uid/website/:wid/page/:pid/widget"><i class="fas
+          fa-chevron-left"></i></a>
+  <a class="navbar-brand" routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">Edit Widget</a>
+  <a class="color-black" routerLink="/user/:uid/website/:wid/page"><i class="fas fa-check"></i></a>
+  
+      </nav>
+        <!-- Form -->
+
+  <div class="container">
+      
+      <form>
+         <!-- Name -->
+          <div class="form-group">
+              <label 
+              for="name"><b>Name</b></label>
+              <input type="text" id="name"
+              class="form-control">
+     </div>
+     <!-- Text -->
+      <!-- Name -->
+      <div class="form-group">
+              <label 
+              for="Text"><b>Text</b></label>
+              <input type="text" id="Text"
+              class="form-control">
+     <!-- Size -->
+  
+      <div class="form-group">
+              <label 
+              for="size"><b>Size</b></label>
+              <input type="number" id="size"
+        class="form-control">
+     </div>      
+    </div>  
+   </form>   
+          <a routerLink="/user/:uid/website/:wid/page/:pid/widget" class="btn btn-danger btn-block">Delete</a>
+ 
+      
+      <!-- footer -->
+<footer class="navbar b=navbar-light fixed-bottom bg-light">
+      <div class="full-width">
+          <a class="color-black float-right"
+          routerLink="/user/:uid"><i class="fas fa-user"></i></a>
+              </div>
+  </footer>
+
