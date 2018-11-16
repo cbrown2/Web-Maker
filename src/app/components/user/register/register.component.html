@@ -1,24 +1,28 @@
 <div class="container">
 
-  <h1>Register</h1>
+        <h1>Register</h1>
+      
+      <form (ngSubmit)= "register()" #myForm= "ngForm">
+        <div class="form-group">
+      
+            <input [(ngModel)]= "username" required name= "username"
+            class="form-control" type="text"
+             placeholder="Username" #userInput="ngModel">
+          
+      
+        </div>
+            <div *ngIf="userIn" class= "alert alert-warning">Username cannot be empty</div> "form-group">
+             <input class="form-control" required name="password" [(ngModel)]= "password" type="password"
+            placeholder="Password" #passwordInput= "ngModel">
+      
+        </div>
+        <div class= "form-group">
+            <input class="form-control" required name="verify password" [(ngModel)] ="verifyPassword" type="password"
+            placeholder="Verify Password" #verifyPasswordInput= "ngModel">
+        </div>
+        <button type="submit" [disable] ="myForm.invalid" class="btn btn-primary btn-block">Register</button>
+        <a routerLink="/login"class="btn btn-danger btn-block">Cancel</a>
+      </form>
+      </div>
 
-<form>
-  <div class="form-group">
-
-      <input class=form-control type="text"
-       placeholder="Usersname">
-    
-
-  </div>
-      <div class= "form-group">
-       <input class=form-control type="password"
-      placeholder="Password">
-
-  </div>
-  <div class= "form-group">
-      <input class=form-control type="password"
-      placeholder="Verify Password">
-  </div>
-  <a routerLink="/user/:uid"class="btn btn-primary btn-block">Register</a>
-  <a routerLink="/register"class="btn btn-danger btn-block">Cancel</a>
-</form>
+      <!--106-->
