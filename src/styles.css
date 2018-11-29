@@ -37,3 +37,9 @@ padding-left: 30px
     position: absolute;
     right:0;
 }
+.bg-transparent{
+    background: transparent;
+}
+.pointer{
+    cursor:pointer;
+}

@@ -2,27 +2,27 @@
   <nav class="navbar navbar-light bg-light fixed-top Row">
     <!-- Left Nav -->
     <div class="col-4 dnone d-sm-block">
-        <a class="color-black"routerLink="/user/:uid/website">
+        <a class="color-black"routerLink="/user/{{uid}}/website">
             <i class="fas fa-chevron-left"></i>
         </a>
-        <a class="color-black" routerLink="/user/:uid/website/:wid">
+        <a class="color-black" routerLink="/user/{{uid}}/website/{{wid}}">
             <b>Website</b>
         </a>
-        <a class="color-light float-right" routerLink="/user/:uid/website/new">
+        <a class="color-light float-right" routerLink="/user/{{uid}}/website/new">
             <i class="fas fa-plus"></i>
         </a>
     </div>
     <!--Right-Nav -->
     <div class="col-sm-8">
-        <a class="color-white d-sm-none" routerLink="/user/:uid/website">
+        <a class="color-white d-sm-none" routerLink="/user/{{uid}}/website">
             <i class="fas fa-chevron-left"></i>
         </a>
-        <a class="navbar-brand" routerLink="/user/:uid/website/:uid/website/:wid">
+        <a class="navbar-brand" routerLink="/user/{{uid}}/website/{{uid}}d/website/:wid">
             <b>Edit Website</b>
         </a>
-        <a class="color-dark float-right padding-left" routerLink="/user/:uid/website">
-            <i class="fas fa-check"></i>
-        </a>
+        <button class="color-dark float-right padding-left btn bg-transparent" form="myForm">
+            <i class="fas fa-check"></i></button>
+        
     </div>
 </nav>
 <!-- List & Form -->
@@ -31,21 +31,21 @@
     <div class="col-4 d-none d-sm-block">
         <div class="container-fluid">
             <ul class="list-group">
-                <li class="list-group-item">
-                    <a routerLink="/user/:uid/website/:wid/page">Address Book App</a>
-                    <a class= float-right routerLink="/user/:uid/website/:wid/page"><i class="fas fa-cog"></i></a>
+                <li class="list-group-item" *ngFor= "let website of websites">
+                    <a routerLink="/user/{{uid}}/website/{{wid}}/page">{{website.name}}</a>
+                    <a class= float-right routerLink="/user/{{uid}}/website/{{website_id}}"><i class="fas fa-cog"></i></a>
                 </li>
                 <li class="list-group-item">
-                    <a routerLink="/user/:uid/website/:wid/page">Blogger</a>
-                    <a class= float-right routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>
+                    <a routerLink="/user/{{uid}}/website/{{website._id}}/page">Blogger</a>
+                    <a class= float-right routerLink="/user/{{uid}}/website/{{website._id}}"><i class="fas fa-cog"></i></a>
                 </li>
                 <li class="list-group-item">
-                    <a routerLink="/user/:uid/website/:wid/page">Blogging App</a>
-                    <a class= float-right routerLink="/user/:uid/website/:wid "><i class="fas fa-cog"></i></a> 
+                    <a routerLink="/user/{{uid}}/website/{{wid}}/page">Blogging App</a>
+                    <a class= float-right routerLink="/user/{{uid}}/website/{{wid}}"><i class="fas fa-cog"></i></a> 
                 </li>  
                 <li class="list-group-item">
-                    <a routerLink="/user/:uid/website/:wid/page ">Script Testing App</a>
-                    <a class= float-right routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>
+                    <a routerLink="/user/{{uid}}/website/{{wid}}/page ">Script Testing App</a>
+                    <a class= float-right routerLink="/user/{{uid}}/website/{{wid}}"><i class="fas fa-cog"></i></a>
                 </li>
             </ul>
         </div>
@@ -53,16 +53,16 @@
     <!-- Right Form -->
     <div class="col-sm-8">
         <div class="container-fluid">
-            <form>
+            <form id="myForm" #myForm="ngForm" (ngSubmit)= "update()">
                 <div class= 'form-group'>
                     <label><b>Name</b></label>
-                    <input class="form-control" type="text" placeholder="Name of the website"value="Blogger">
+                    <input class="form-control" type="text" placeholder="Name of the website" [(ngModel)]= "website.name" name="name">
                 </div>
                 <div class='form-group'>
                     <label for="description">Description</label>
-                    <textarea id= "description" rows="5" class= "form-control" type="text" placeholder="Describe the website">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, deserunt? Quia unde harum suscipit tenetur! Expedita facere facilis totam, asperiores ducimus corrupti labore quisquam nulla, eos numquam placeat enim minus?</textarea>
+                    <textarea [(ngModel)] = "website.description" name="description" id= "description" rows="5" class= "form-control" type="text" placeholder="Describe the Website"></textarea>
                 </div>
-                <a routerLink="/user/:uid/website      "class="btn btn-lg btn-danger">Delete</a>
+                <button type="button" (click)= "delete()" class="btn btn-lg btn-danger">Delete</button>
             </form>
         </div>
     </div>
@@ -70,7 +70,7 @@
 <!-- Footer -->
 <footer class="navbar navbar-light fixed-bottom bg-light">
     <div class="full-width">
-        <a class="color-black float-right" routerLink="/user/:uid">
+        <a class="color-black float-right" routerLink="/user/{{uid}}">
             <i class="fas fa-user"></i></a>
       
  </div>

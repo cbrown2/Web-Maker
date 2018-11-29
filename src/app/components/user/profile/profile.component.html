@@ -1,42 +1,44 @@
     <!-- Navbar -->
     <nav class="navbar navbar-dark bg-success fixed-top">
       <a class="navbar-brand"
-    routerLink="/user/:uid"><b>Profile</b></a>
-      <a class="color-white" routerLink="/user/:uid"><i class="fas fa-check"></i></a>
+    routerLink="/user/{{uid}}"><b>Profile</b></a>
+      <button [disabled]= "myForm.invalid"class="btn bg-transparent color-white" type="submit" form="myForm"><i class="fas fa-check"></i></button>
    
   </nav>   
 <!-- Form -->
 <div class="container">
 
 </div>
-<form>
-  
+<form #myForm="ngForm" (ngSubmit)= "update()" id="myForm">
+  <div *ngIf="userError" class="alert alert-danger"> This username is taken, please try another one</div>
+  <div *ngIf="successFlag" class="alert alert-success"> Update Successfully</div>
   <!-- Username -->
   <div class="form-group">
       <label><b>Username</b></label>
-      <input class="form-control"
-      type="text"placeholder="username">
+      <input #userInput= "ngModel" required class="form-control" [(ngModel)]="user.username"
+      name="username" placeholder="Enter Username...">
 
   </div>
+  <div *ngIf="userInput.invalid" class="alerrt alert-warning"> Username cannot be empty </div>
   <!-- Email -->
   <div class="form-group">
       <label><b>Email</b></label>
-      <input class="form-control"type="text"placeholder="Email">
+      <input class="form-control" name= "email" [(ngModel)] = "user.email" placeholder=" Enter Email...">
   </div>
   <!-- First Name -->
   <div class="form-group">
       <label><b>First Name</b></label>
       <input class="form-control"
-      type="text"placeholder="First Name">
+     name= "firstName" [(ngModel)]= "user.firstName" placeholder="Enter First Name...">
   </div>
   <!-- Last Name -->
   <div class="form-group">
      <label><b>Last Name</b></label>
      <input class="form-control"
-     type="text"placeholder="Last Name">
+    name= "lastName" [(ngModel)]= "user.lastName" placeholder="Enter Last Name...">
   </div>
   <!-- buttons -->
- <a routerLink="/user/:uid/website"class="btn btn-primary
+ <a routerLink="/user/{{uid}}/website"class="btn btn-primary
  btn-block">Websites</a>
   <a routerLink="/login" class="btn btn-danger
   btn-block">Logout</a>

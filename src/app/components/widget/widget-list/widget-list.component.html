@@ -2,92 +2,86 @@
   <!-- Navbar -->
   <nav class="navbar navbar-light fixed-top bg-light">
     <a class="color-black"
-   routerLink="/user/:uid/website/:wid/page"><i class="fas
+   routerLink="/user/{{uid}}/website/{{wid}}/page"><i class="fas
         fa-chevron-left"></i></a>
-<a class="navbar-brand" routerLink="/user/:uid/website/:wid/page/:pid/widget">Widgets</a>
-<a class="color-black" routerLink="/user/:uid/website/:wid/page/:pid/widget/new"><i class="fas fa-plus"></i></a>
+<a class="navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget">Widgets</a>
+<a class="color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"><i class="fas fa-plus"></i></a>
     </nav>
       
     <!-- main content -->
-    <div class="container-fluid">
-     <!-- Heading widgets -->
-    </div>
+    <div class="container-fluid" *ngFor= "let widget of widgets">
+     <!--widgets -->
+    </div> 
           <!-- icons -->
 
     <!-- content -->
+   
 
 <!-- Heading widgets -->
     <!-- icons -->
     <div class="absolute-right">
-            <a routerLink="user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas 
+            <a routerLink="user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/:wgid"><i class="fas 
               fa-cog"></i></a>
              
-              <a routerLink="user/:uid/website/:wid/page/:pid/widget"><i class="fas fa-bars"></i></a>
+              <a routerLink="user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><i class="fas fa-bars"></i></a>
               </div>
           
              
         <!-- icons -->
   
   <!-- content -->
+  <div [ngSwitch]="widget.widgetType">
+    <div *ngSwitchCase="'Heading'">
+    <div [ngSwitch="widget.size"]>
+    <div *ngSwitchCase="1">
+   <h1>{{widget.text}}</h1>
 
-    <h1>Welcome</h1>
-    <br>
-<h3>A pow wow is a social gathering held by many different Native American communities. A modern pow wow is a specific type of event for Native American people to meet and dance, sing, socialize, and honor their cultures. Pow wows may be private or public</h3>
-
-<!-- Heading widgets -->
-
-    <!-- icons -->
-    <div class="float-right absolute-right">
-    <a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas 
-      fa-cog"></i></a>
-     
-      <a routerLink="/user/:uid/website/:wid/page/:pid/widget"><i class="fas fa-bars"></i></a>
-      </div>
-  
-
-<!-- content -->
-<div>
-<img class="img-fluid"
-src="https://www.pacificnorthwestshop.com/products/native-american-dream-catcher-6-x-18.jpg"alt="Native Americans">
-</div>
-<!-- Heading widgets -->
-<div>
-    <!-- icons -->
-    <div class="float-right absolute-right">
-    <a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas 
-      fa-cog"></i></a>
-     
-      <a routerLink="/user/:uid/website/:wid/page/:pid/widget"><i class="fas fa-bars"></i></a>
-      </div>
-
-   <!-- content -->
-
-    <!-- icons -->
-    
-          <div>
-              <br>
-    <h1>Shaman</h1>
     </div>
-    <div class="float-right absolute-right">
-            <a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas 
-              fa-cog"></i></a>
-             
-              <a routerLink="/user/:uid/website/:wid/page/:pid/widget"><i class="fas fa-bars"></i></a>
-              </div>
-       <!-- content -->
-    <div>
-        <iframe width="1004" height="753" src="https://www.youtube.com/embed/zsCjCOzYU8o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-<h5>The Great Spirit,The Spiritual Journey Home
-    These tutelary spirits, are believed to empower and protect them from harm, like guardian spirits or angels. The spirit of the Power Animal lends the Shaman with the wisdom of its kind, acting as a teacher to help him provide solutions to the problems being experienced by the tribe or how to use its powers to heal the sick. The Shaman will then undertake his spiritual journey home. He returns to the point of entry to the 'other world' and passes along the spirit tunnels to the earthly world. At this stage he emerges from his trance-like state and signals to his aide, who strikes a drum very rapidly for about a minute to announce the return of the Shaman. The drumming concludes with four abrupt strikes of the drum to signal that the Spiritual journey is over and the Shaman opens his eyes.
-<!-- Youtube widgets -->
+    <div *ngSwitchCase="2">
+     <h2>{{widget.text}}</h2>
+  
+     </div>
+     <div *ngSwitchCase="3">
+     <h3>{{widget.text}}</h3>
+      
+      </div>
+     <div *ngSwitchCase="4">
+     <h4>{{widget.text}}</h4>
+          
+    </div>
+    <div *ngSwitchCase="5">
+    <h5>{{widget.text}}</h5>
+              
+     </div>
+     <div *ngSwitchCase="6">
+    <h6>{{widget.text}}</h6>
+                  
+    </div>
+  <div>
 
-       
-    <!-- content -->
-<!-- footer -->
+  </div>
+
+
+
+</div>
+<div *ngSwitchCase="'Image'">
+    <img [src]="widget.url" [style.width]="widget.width"/>
+</div>
+
+</div>
+
+<div *ngSwitchCase="'YOUTUBE'">
+    <div class= "embed-responsive embed-responsive-16by9">
+        <iframe [src] ="parseYoutubeSrc(widget.url)"[style.width]= "widget.width" allowfullscreen></iframe>
+    </div>
+</div>
+
+<h1>Welcome</h1>
+    <br>
+
 <!-- footer -->
 <footer class="navbar b=navbar-light fixed-bottom bg-light">
     <div class="full-width">
         <a class="color-black float-right"
-        routerLink="/user/:uid"><i class="fas fa-user"></i></a>
+        routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
             </div>
