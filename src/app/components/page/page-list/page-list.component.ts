@@ -13,7 +13,7 @@ export class PageListComponent implements OnInit {
 
   uid:string;
   wid: string;
-  pages : Page[];
+  pages: Page[];
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(

@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light fixed-top">
     <a class="color-black"
-   routerLink="/user/:uid/website"><i class="fas
+   routerLink="/user/{{uid}}/website"><i class="fas
         fa-chevron-left"></i></a>
  <a class="navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}/page">Pages</a>
  <a class="color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/new"><i class="fas fa-plus"></i></a>
@@ -15,23 +15,12 @@
             <li class="list-group-item" *ngFor="let page of pages">
                 <a routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}/widget">{{page.name}}</a>
                 <a class="float-right"
-                routerLink="/user/{{uid}}/website/{{wid}}/page"><i class="fas fa-cog"></i></a>
+                routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}"><i class="fas fa-cog"></i></a>
             </li>
-            <li class="list-group-item">
-                    <a routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}/widget">Blog</a>
-                    <a class="float-right"
-                    routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}/"><i class="fas fa-cog"></i></a>
-           
-        
-            
-            
-                    </li>
-                </ul>
-    
-   
+        </ul>
     </div>
  <!-- Footer -->
- <footer class="navbar b=navbar-light fixed-bottom bg-dark">
+ <footer class="navbar navbar-light fixed-bottom bg-dark">
     <div class="full-width">
         <a class="color-black float-right"
         routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>

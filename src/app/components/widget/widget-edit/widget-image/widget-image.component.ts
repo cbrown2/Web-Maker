@@ -36,7 +36,7 @@ update(){
 this.widgetService.updateWidget(this.wgid);([
     "user",
     this.uid,
-    "webdsite",
+    "website",
     this.pid,
     "page",
     this.pid,
@@ -49,7 +49,7 @@ delete(){
   this.router.navigate([
     "user",
     this.uid,
-    "webdsite",
+    "website",
     this.pid,
     "page",
     this.pid,

@@ -12,16 +12,18 @@ export class WebsiteNewComponent implements OnInit {
 websites:Website[];
 uid: string;
 name:string;
+wid: string;
 description:string;
 
   constructor(
     private websiteService: WebsiteService, 
     private activatedRoute: ActivatedRoute,
-    private route:Router) { }
+    private router:Router) { }
 
     ngOnInit() {
       this.activatedRoute.params.subscribe(
         params=>{
+          this.wid= params['wid'];
           this.uid= params['uid'];
           this.websites= this.websiteService.findWebsiteByUser(this.uid);
         }
@@ -37,6 +39,6 @@ description:string;
     };
   
   this.websiteService.createWebsite(website);
-  this.route.navigate (["user", this.uid, "website"]);
+  this.router.navigate (["user", this.uid, "website"]);
 }
 }

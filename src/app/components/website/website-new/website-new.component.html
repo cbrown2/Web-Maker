@@ -1,5 +1,5 @@
   <!-- Navbar -->
-  <nav class="navbar navbar-light bg-light fixed-top Row">
+  <nav class="navbar navbar-light bg-light fixed-top row">
     <!-- Left Nav -->
     <div class="col-4 d-none d-sm-block">
         <a class="color-black" routerLink="/user/{{uid}}/website">
@@ -20,7 +20,7 @@
         <a class="navbar-brand" routerLink="/user/{{uid}}/website/new">
             <b>New Website</b>
         </a>
-        <button type="submit" form="myForm" class="color-dark float-right padding-left btn- bg-transparent"><i class="fas fa-check"></i>
+        <button type="submit" form="myForm" class="color-dark float-right padding-left btn bg-transparent"><i class="fas fa-check"></i>
         </button>
         
 
@@ -35,10 +35,12 @@
      <ul class="list-group">
              <li class="list-group-item" *ngFor=" let website of websites">
                  <a routerLink="/user/{{uid}}/website/{{wid}}/page">{{website.name}}</a>
-                 <a class= float-right routerLink="/user/{{uid}}/website/{{website._id}}"><i class="fas fa-cog"></i></a>
+                 <a class= "float-right" routerLink="/user/{{uid}}/website/{{website._id}}"><i class="fas fa-cog"></i></a>
              </li>
-                
-             <li class="list-group-item">
+            </ul>  
+            </div> 
+        </div>
+             <!-- <li class="list-group-item">
                 <a routerLink="/user/{{uid}}/website/{{wid}}/page">Blogger</a>
                  <a class= float-right routerLink="/user/{{uid}}/website/{{wid}}"><i class="fas fa-cog"></i></a>
                  </li>
@@ -54,29 +56,31 @@
                  </li>
          </ul>
 </div>
-</div>
+</div> -->
 <!-- Right Form -->
  <div class="col-sm-8">
  <div class="container-fluid">
- <form id="myForm" #myForm= "ngForm"(ngSubmit)="createWebsite()">
-     <div class= 'form-group'>
-         <label><b>Name</b></label>
-         <input [(ngModel)]= "name" id= name required class="form-control"
+ <form id="myForm" #myForm="ngForm"(ngSubmit)="createWebsite()">
+     <div class='form-group'>
+         <label for ="name"><b>Name</b></label>
+         <input [(ngModel)]= "name" name="name" id= "name" required class="form-control"
 type="text" placeholder="Name of the website">
          </div>
      <div class='form-group'>
          <label
-         for="description">Description</label>
+         for="description"><b>Description</b></label>
        
          <textarea [(ngModel)]= "description" name="description" id= "description"                                     
-         row="5"class="form-control" type="text"
+         rows="5"class="form-control" type="text"
          placeholder="Describe the website"></textarea>
      </div>
     
      <a routerLink="/user/{{uid}}/website"class="btn btn-lg btn-warning">Cancel</a>
-     <button type ="submit" class="btn btn-lg btn-success
+     <button  type ="submit" class="btn btn-lg btn-success
      float-right">Submit</button>
  </form>
+</div>
+</div>
 </div>
 
      

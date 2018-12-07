@@ -1,87 +1,58 @@
+<!-- Navbar -->
+<nav class="navbar navbar-light fixed-top bg-light">
+    <a class="color-black" routerLink="/user/{{uid}}/website/{{wid}}/page"><i class="fas fa-chevron-left"></i></a>
+    <a class="navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget">Widgets</a>
+    <a class="color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"><i class="fas fa-plus"></i></a>
+</nav>
+ <!-- main content -->
+<div class="container-fluid">  
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-light fixed-top bg-light">
-    <a class="color-black"
-   routerLink="/user/{{uid}}/website/{{wid}}/page"><i class="fas
-        fa-chevron-left"></i></a>
-<a class="navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget">Widgets</a>
-<a class="color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"><i class="fas fa-plus"></i></a>
-    </nav>
-      
-    <!-- main content -->
-    <div class="container-fluid" *ngFor= "let widget of widgets">
-     <!--widgets -->
-    </div> 
-          <!-- icons -->
-
-    <!-- content -->
-   
-
-<!-- Heading widgets -->
-    <!-- icons -->
-    <div class="absolute-right">
-            <a routerLink="user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/:wgid"><i class="fas 
-              fa-cog"></i></a>
-             
-              <a routerLink="user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><i class="fas fa-bars"></i></a>
-              </div>
-          
-             
-        <!-- icons -->
-  
-  <!-- content -->
-  <div [ngSwitch]="widget.widgetType">
-    <div *ngSwitchCase="'Heading'">
-    <div [ngSwitch="widget.size"]>
-    <div *ngSwitchCase="1">
-   <h1>{{widget.text}}</h1>
-
-    </div>
-    <div *ngSwitchCase="2">
-     <h2>{{widget.text}}</h2>
-  
+<!-- </div> -->
+<!-- widgets -->
+    <div *ngFor= "let widget of widgets">
+<!-- icons -->
+     <div class="absolute-right">
+        <a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{widget._id}}"><i class="fas fa-cog"></i></a>
+         <a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><i class="fas fa-bars"></i></a>
      </div>
-     <div *ngSwitchCase="3">
-     <h3>{{widget.text}}</h3>
-      
-      </div>
-     <div *ngSwitchCase="4">
-     <h4>{{widget.text}}</h4>
-          
+<!-- content -->
+<div [ngSwitch]="widget.widgetType">
+    <div *ngSwitchCase="'HEADING'">
+         <div [ngSwitch]="widget.size">
+             <div *ngSwitchCase="1">
+                <h1>{{widget.text}}</h1>
+             </div>
+             <div *ngSwitchCase="2">
+                <h2>{{widget.text}}</h2>
+             </div>
+             <div *ngSwitchCase="3">
+                <h3>{{widget.text}}</h3>
+             </div>
+             <div *ngSwitchCase="4">
+                 <h4>{{widget.text}}</h4>      
+             </div>
+            <div *ngSwitchCase="5">
+                <h5>{{widget.text}}</h5>
+             </div>
+             <div *ngSwitchCase="6">
+                <h6>{{widget.text}}</h6>
+             </div>
+        </div>
     </div>
-    <div *ngSwitchCase="5">
-    <h5>{{widget.text}}</h5>
-              
-     </div>
-     <div *ngSwitchCase="6">
-    <h6>{{widget.text}}</h6>
-                  
-    </div>
-  <div>
-
-  </div>
-
-
-
-</div>
-<div *ngSwitchCase="'Image'">
-    <img [src]="widget.url" [style.width]="widget.width"/>
-</div>
-
-</div>
-
+<div *ngSwitchCase="'IMAGE'">
+     <img [src]="widget.url" [style.width]="widget.width"/>
+ </div>
 <div *ngSwitchCase="'YOUTUBE'">
     <div class= "embed-responsive embed-responsive-16by9">
         <iframe [src] ="parseYoutubeSrc(widget.url)"[style.width]= "widget.width" allowfullscreen></iframe>
-    </div>
+      </div>
+   </div>
+ </div>
 </div>
-
-<h1>Welcome</h1>
-    <br>
-
+</div>
 <!-- footer -->
-<footer class="navbar b=navbar-light fixed-bottom bg-light">
+<footer class="navbar navbar-light fixed-bottom bg-light">
     <div class="full-width">
-        <a class="color-black float-right"
-        routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
-            </div>
+        <a class="color-black float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
+    </div>
+</footer>

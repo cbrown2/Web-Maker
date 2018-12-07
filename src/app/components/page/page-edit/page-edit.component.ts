@@ -9,30 +9,30 @@ import { Page } from 'src/app/models/page.model.client';
 })
 export class PageEditComponent implements OnInit {
   
-//   uid:string;
-//   wid:string;
-//   pid:string;
-//   page:Page;
+  uid:string;
+  wid:string;
+  pid:string;
+  page:Page;
 
-//   constructor(private activatedRoute:ActivatedRoute, private pageService:PageService, private router:Router) {}
+  constructor(private activatedRoute:ActivatedRoute, private pageService:PageService, private router:Router) {}
 
   ngOnInit() {
-    // this.activatedRoute.params.subscribe(params=> {
-    //   this.uid = params["uid"]
-    //   this.wid = params["wid"]
-    //   this.pid = params["pid"]
-    //   this.page = this.pageService.findPageById(this.pid);
-    // })
+    this.activatedRoute.params.subscribe(params=> {
+      this.uid = params["uid"]
+      this.wid = params["wid"]
+      this.pid = params["pid"]
+      this.page = this.pageService.findPageById(this.pid);
+    })
   }
 
 
-// update() {
-//   this.pageService.updatePage(this.page);
-//   this.router.navigate(["user",this.uid,"website",this.wid,"page"]);
-// }
+update() {
+  this.pageService.updatePage(this.page);
+  this.router.navigate(["user",this.uid,"website",this.wid,"page"]);
+}
 
-// delete() {
-//   this.pageService.deletePage(this.pid);
-//   this.router.navigate(["user",this.uid,"website",this.wid,"page"]);
-// }
+delete() {
+  this.pageService.deletePage(this.pid);
+  this.router.navigate(["user",this.uid,"website",this.wid,"page"]);
+}
 }

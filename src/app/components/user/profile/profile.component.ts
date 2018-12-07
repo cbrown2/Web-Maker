@@ -13,7 +13,13 @@ export class ProfileComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute, private userService:UserService) { }
 
   uid:string;
-  user: User;
+  user: User ={
+    username : "",
+    password: "",
+    firstName: "",
+    lastName: "",
+    email: ""
+  };
   oldUserName:string;
   userError: boolean;
   successFlag: boolean;

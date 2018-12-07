@@ -45,7 +45,7 @@ delete(){
   this.router.navigate([
     "user",
     this.uid,
-    "webdsite",
+    "website",
     this.pid,
     "page",
     this.pid,

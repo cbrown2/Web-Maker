@@ -14,7 +14,8 @@ export class WidgetListComponent implements OnInit {
   wid: string;
   pid:string;
   widgets:Widget[];
-  constructor(private activatedRoute: ActivatedRoute,
+  constructor(
+    private activatedRoute: ActivatedRoute,
     private widgetService:WidgetService,
    private sanitizer: DomSanitizer
     ) { }
@@ -26,6 +27,8 @@ export class WidgetListComponent implements OnInit {
       this.wid= params['wid']
       this.pid= params['pid']
       this.widgets= this.widgetService.findWidgetsByPageId(this.pid);
+      
+    
     }
   );
   }

@@ -17,7 +17,7 @@
         <a class="color-white d-sm-none" routerLink="/user/{{uid}}/website">
             <i class="fas fa-chevron-left"></i>
         </a>
-        <a class="navbar-brand" routerLink="/user/{{uid}}/website/{{uid}}d/website/:wid">
+        <a class="navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}">
             <b>Edit Website</b>
         </a>
         <button class="color-dark float-right padding-left btn bg-transparent" form="myForm">
@@ -35,18 +35,6 @@
                     <a routerLink="/user/{{uid}}/website/{{wid}}/page">{{website.name}}</a>
                     <a class= float-right routerLink="/user/{{uid}}/website/{{website_id}}"><i class="fas fa-cog"></i></a>
                 </li>
-                <li class="list-group-item">
-                    <a routerLink="/user/{{uid}}/website/{{website._id}}/page">Blogger</a>
-                    <a class= float-right routerLink="/user/{{uid}}/website/{{website._id}}"><i class="fas fa-cog"></i></a>
-                </li>
-                <li class="list-group-item">
-                    <a routerLink="/user/{{uid}}/website/{{wid}}/page">Blogging App</a>
-                    <a class= float-right routerLink="/user/{{uid}}/website/{{wid}}"><i class="fas fa-cog"></i></a> 
-                </li>  
-                <li class="list-group-item">
-                    <a routerLink="/user/{{uid}}/website/{{wid}}/page ">Script Testing App</a>
-                    <a class= float-right routerLink="/user/{{uid}}/website/{{wid}}"><i class="fas fa-cog"></i></a>
-                </li>
             </ul>
         </div>
     </div>
@@ -60,9 +48,10 @@
                 </div>
                 <div class='form-group'>
                     <label for="description">Description</label>
-                    <textarea [(ngModel)] = "website.description" name="description" id= "description" rows="5" class= "form-control" type="text" placeholder="Describe the Website"></textarea>
+                    <textarea [(ngModel)] ="website.description" name="description" id= "description" rows="5" class= "form-control" type="text" placeholder="Describe the Website"></textarea>
                 </div>
-                <button type="button" (click)= "delete()" class="btn btn-lg btn-danger">Delete</button>
+                <a routerLink="/user/{{uid}}/website" class="btn btn-lg btn-warning">Cancel</a>
+                <button type="button" (click)="delete()" class="btn btn-lg btn-danger">Delete</button>
             </form>
         </div>
     </div>
