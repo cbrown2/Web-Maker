@@ -12,13 +12,7 @@ routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><i class="fas
 <div class="container">
   
   <form id="myForm" #myForm="ngForm"(ngSubmit)="update()">
-     <!-- Name -->
-      <div class="form-group">
-          <label 
-          for="name"><b>Name</b></label>
-          <input name="name" placeholder="Image Name" [(ngModel)]="widget.name" type="text" id="name"
-          class="form-control">
-      </div>
+    
 
  <!-- Url -->
 
